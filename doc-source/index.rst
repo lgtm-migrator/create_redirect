@@ -20,7 +20,7 @@ Once installed, ``create_redirect`` can be run with the following syntax:
 
 `Browse the Source Code <_modules/index.html>`__.
 
-`Browse the GitHub Repository <https://github.com/domdfcoding/domdf_spreadsheet_tools>`__
+`Browse the GitHub Repository <https://github.com/domdfcoding/create_redirect>`__
 
 .. toctree::
     :maxdepth: 3
