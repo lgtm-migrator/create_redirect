@@ -1,31 +1,154 @@
-.. include:: ../README.rst
+################
+create_redirect
+################
+
+.. start short_desc
+
+**Python script for creating HTML redirects**
+
+.. end short_desc
+
+.. start shields
+
+.. list-table::
+	:stub-columns: 1
+	:widths: 10 90
+
+	* - Docs
+	  - |docs| |docs_check|
+	* - Tests
+	  - |travis| |actions_windows| |actions_macos| |codefactor|
+	* - PyPI
+	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Activity
+	  - |commits-latest| |commits-since| |maintained|
+	* - Other
+	  - |license| |language| |requires| |pre_commit|
+
+.. |docs| image:: https://img.shields.io/readthedocs/create_redirect/latest?logo=read-the-docs
+	:target: https://create_redirect.readthedocs.io/en/latest/?badge=latest
+	:alt: Documentation Status
+
+.. |docs_check| image:: https://github.com/domdfcoding/create_redirect/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/domdfcoding/create_redirect/actions?query=workflow%3A%22Docs+Check%22
+	:alt: Docs Check Status
+
+.. |travis| image:: https://img.shields.io/travis/com/domdfcoding/create_redirect/master?logo=travis
+	:target: https://travis-ci.com/domdfcoding/create_redirect
+	:alt: Travis Build Status
+
+.. |actions_windows| image:: https://github.com/domdfcoding/create_redirect/workflows/Windows%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/create_redirect/actions?query=workflow%3A%22Windows+Tests%22
+	:alt: Windows Tests Status
+
+.. |actions_macos| image:: https://github.com/domdfcoding/create_redirect/workflows/macOS%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/create_redirect/actions?query=workflow%3A%22macOS+Tests%22
+	:alt: macOS Tests Status
+
+.. |requires| image:: https://requires.io/github/domdfcoding/create_redirect/requirements.svg?branch=master
+	:target: https://requires.io/github/domdfcoding/create_redirect/requirements/?branch=master
+	:alt: Requirements Status
+
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/create_redirect?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/domdfcoding/create_redirect
+	:alt: CodeFactor Grade
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/create_redirect
+	:target: https://pypi.org/project/create_redirect/
+	:alt: PyPI - Package Version
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/create_redirect?logo=python&logoColor=white
+	:target: https://pypi.org/project/create_redirect/
+	:alt: PyPI - Supported Python Versions
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/create_redirect
+	:target: https://pypi.org/project/create_redirect/
+	:alt: PyPI - Supported Implementations
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/create_redirect
+	:target: https://pypi.org/project/create_redirect/
+	:alt: PyPI - Wheel
+
+.. |license| image:: https://img.shields.io/github/license/domdfcoding/create_redirect
+	:target: https://github.com/domdfcoding/create_redirect/blob/master/LICENSE
+	:alt: License
+
+.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/create_redirect
+	:alt: GitHub top language
+
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/create_redirect/v0.1.2
+	:target: https://github.com/domdfcoding/create_redirect/pulse
+	:alt: GitHub commits since tagged version
+
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/create_redirect
+	:target: https://github.com/domdfcoding/create_redirect/commit/master
+	:alt: GitHub last commit
+
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2020
+	:alt: Maintenance
+
+.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+	:target: https://github.com/pre-commit/pre-commit
+	:alt: pre-commit
+
+.. end shields
+
+Installation
+---------------
+
+.. start installation
+
+.. tabs::
+
+	.. tab:: from PyPI
+
+		.. prompt:: bash
+
+			python3 -m pip install create_redirect --user
 
 
-``create_redirect`` can be installed with pip:
+	.. tab:: from GitHub
 
-.. code-block:: bash
+		.. prompt:: bash
 
-    $ pip install create_redirect
+			python3 -m pip install git+https://github.com/domdfcoding/create_redirect@master --user
+
+.. end installation
 
 Once installed, ``create_redirect`` can be run with the following syntax:
 
-.. code-block:: bash
+.. prompt:: bash
 
-    $ create_redirect redirect_url [output]
+	create_redirect redirect_url [output]
 
 ``redirect_url`` is the URL you want the user to be redirected to.
 
 ``output``, an optional argument, is the filename for the output file. By default this is "index.html" in the current directory.
 
 
-`Browse the Source Code <_modules/index.html>`__.
+.. toctree::
+	:hidden:
+
+	Home<self>
+
+.. toctree::
+	:maxdepth: 3
+	:caption: API Reference
+	:glob:
+
+	api/*
+
+.. toctree::
+	:maxdepth: 3
+	:caption: Documentation
+
+	contributing
+	Source
+
+.. start links
+
+View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
 `Browse the GitHub Repository <https://github.com/domdfcoding/create_redirect>`__
 
-.. toctree::
-    :maxdepth: 3
-    :caption: Documentation
-
-    docs
-    Source
-    Building
+.. end links

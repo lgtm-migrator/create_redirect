@@ -1,37 +1,65 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-import sys
+# This file is managed by 'repo_helper'. Don't edit it directly.
+
+# stdlib
 import os
 import re
+import sys
+
+# 3rd party
+from sphinx.locale import _
 
 sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('..'))
-sys.path.append(os.path.abspath('./demo/'))
 
-from sphinx.locale import _
+from __pkginfo__ import __version__
 
+# User-configurable lines
+# End of user-configurable lines
 
+github_url = "https://github.com/domdfcoding/create_redirect"
+
+rst_prolog = f""".. |pkgname| replace:: create_redirect
+.. |pkgname2| replace:: ``create_redirect``
+.. |browse_github| replace:: `Browse the GitHub Repository <{github_url}>`__
+"""
+
+author = "Dominic Davis-Foster"
 project = "create_redirect"
-from create_redirect import __author__, __version__, __copyright__
-
-
 slug = re.sub(r'\W+', '-', project.lower())
-version = __version__
-release = __version__
-author = __author__
-copyright = __copyright__
+release = version = __version__
+copyright = "2015, 2019-2020 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
 language = 'en'
+package_root = "create_redirect"
 
 extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinxcontrib.httpdomain',
-]
+		'sphinx.ext.intersphinx',
+		'sphinx.ext.autodoc',
+		'sphinx.ext.mathjax',
+		'sphinx.ext.viewcode',
+		'sphinxcontrib.httpdomain',
+		"sphinxcontrib.extras_require",
+		"sphinx.ext.todo",
+		"sphinxemoji.sphinxemoji",
+		"notfound.extension",
+		"sphinx_tabs.tabs",
+		"sphinx-prompt",
+		"sphinx_autodoc_typehints",
+		"sphinx.ext.autosummary",
+		"autodocsumm",
+		"sphinx_copybutton",
+		"sphinxcontrib.default_values",
+		"sphinxcontrib.toctree_plus",
+		# "sphinx_gitstamp",
+		]
+
+sphinxemoji_style = 'twemoji'
+todo_include_todos = bool(os.environ.get("SHOW_TODOS", 0))
+gitstamp_fmt = "%d %b %Y"
 
 templates_path = ['_templates']
+html_static_path = ['_static']
 source_suffix = '.rst'
 exclude_patterns = []
 
@@ -39,66 +67,66 @@ master_doc = 'index'
 suppress_warnings = ['image.nonlocal_uri']
 pygments_style = 'default'
 
-intersphinx_mapping = { # Is this where those mystery links are specified?
-    'rtd': ('https://docs.readthedocs.io/en/latest/', None),
-    'sphinx': ('http://www.sphinx-doc.org/en/stable/', None),
-}
+intersphinx_mapping = {
+		'rtd': ('https://docs.readthedocs.io/en/latest/', None),
+		'sphinx': ('https://www.sphinx-doc.org/en/stable/', None),
+		'python': ('https://docs.python.org/3/', None),
+		"NumPy": ('https://numpy.org/doc/stable/', None),
+		"SciPy": ('https://docs.scipy.org/doc/scipy/reference', None),
+		"Pandas": ('https://pandas.pydata.org/docs/', None),
+		"matplotlib": ('https://matplotlib.org', None),
+		"h5py": ('https://docs.h5py.org/en/latest/', None),
+		"Sphinx": ('https://www.sphinx-doc.org/en/master/', None),
+		"Django": ('https://docs.djangoproject.com/en/dev/', 'https://docs.djangoproject.com/en/dev/_objects/'),
+		"sarge": ('https://sarge.readthedocs.io/en/latest/', None),
+		"attrs": ('https://www.attrs.org/en/stable/', None),
+		}
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'domdf_sphinx_theme'
 html_theme_options = {
-    'logo_only': False,  # True will show just the logo
-}
+		'logo_only': False,
+		}
 html_theme_path = ["../.."]
-#html_logo = "logo/pyms.png"
-html_show_sourcelink = False    # True will show link to source
+html_show_sourcelink = True  # True will show link to source
 
 html_context = {
-    # Github Settings
-    "display_github": True, # Integrate GitHub
-    "github_user": "domdfcoding", # Username
-    "github_repo": "create_redirect", # Repo name
-    "github_version": "master", # Version
-    "conf_py_path": "/", # Path in the checkout to the docs root
-}
+		'display_github': True,
+		'github_user': 'domdfcoding',
+		'github_repo': 'create_redirect',
+		'github_version': 'master',
+		'conf_py_path': '/doc-source/',
+		}
 
 htmlhelp_basename = slug
 
-latex_documents = [
-  ('index', '{0}.tex'.format(slug), project, author, 'manual'),
-]
-
-man_pages = [
-    ('index', slug, project, [author], 1)
-]
-
-texinfo_documents = [
-  ('index', slug, project, author, slug, project, 'Miscellaneous'),
-]
+latex_documents = [('index', f'{slug}.tex', project, author, 'manual')]
+man_pages = [('index', slug, project, [author], 1)]
+texinfo_documents = [('index', slug, project, author, slug, project, 'Miscellaneous')]
 
 
 # Extensions to theme docs
 def setup(app):
-    from sphinx.domains.python import PyField
-    from sphinx.util.docfields import Field
+	from sphinx.domains.python import PyField
+	from sphinx.util.docfields import Field
 
-    app.add_object_type(
-        'confval',
-        'confval',
-        objname='configuration value',
-        indextemplate='pair: %s; configuration value',
-        doc_field_types=[
-            PyField(
-                'type',
-                label=_('Type'),
-                has_arg=False,
-                names=('type',),
-                bodyrolename='class'
-            ),
-            Field(
-                'default',
-                label=_('Default'),
-                has_arg=False,
-                names=('default',),
-            ),
-        ]
-    )
+	app.add_object_type(
+			'confval',
+			'confval',
+			objname='configuration value',
+			indextemplate='pair: %s; configuration value',
+			doc_field_types=[
+					PyField(
+							'type',
+							label=_('Type'),
+							has_arg=False,
+							names=('type', ),
+							bodyrolename='class',
+							),
+					Field(
+							'default',
+							label=_('Default'),
+							has_arg=False,
+							names=('default', ),
+							),
+					]
+			)
