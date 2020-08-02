@@ -1,66 +1,62 @@
-# Copyright (C) 2015, 2019 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  This file is managed by 'repo_helper'. Don't edit it directly.
+#  Copyright (C) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
-#  This program is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
+#  This file is distributed under the same license terms as the program it came with.
+#  There will probably be a file called LICEN[S/C]E in the same directory as this file.
 #
-#  This program is distributed in the hope that it will be useful,
+#  In any case, this program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-#  You should have received a copy of the GNU General Public License
-#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 # This script based on https://github.com/rocky/python-uncompyle6/blob/master/__pkginfo__.py
+#
 
-copyright   = """
-2015, 2019 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+# stdlib
+import pathlib
+
+__all__ = [
+		"__copyright__",
+		"__version__",
+		"modname",
+		"pypi_name",
+		"__license__",
+		"__author__",
+		"short_desc",
+		"author",
+		"author_email",
+		"github_username",
+		"web",
+		"github_url",
+		"repo_root",
+		"install_requires",
+		"extras_require",
+		"project_urls",
+
+		"import_name",
+		]
+
+__copyright__ = """
+2015, 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 """
 
-classifiers =  ['Development Status :: 3 - Alpha',
-				'Intended Audience :: Developers',
-				'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-				'Operating System :: OS Independent',
-				'Programming Language :: Python',
-				'Programming Language :: Python :: 2.7',
-				'Programming Language :: Python :: 3.4',
-				'Programming Language :: Python :: 3.5',
-				'Programming Language :: Python :: 3.6',
-				'Programming Language :: Python :: 3.7',
-				'Programming Language :: Python :: 3.8',
-				'Topic :: Text Processing :: Markup :: HTML',
-				'Topic :: Software Development :: Libraries :: Python Modules',
-				]
-
-# The rest in alphabetic order
-author             = "Dominic Davis-Foster"
-author_email       = "dominic@davis-foster.co.uk"
-entry_points       = {
-	'console_scripts': [
-		'create_redirect=create_redirect:main',
-	]}
-ftp_url            = None
-install_requires   = []
-
-license            = 'GPL3'
-modname            = "create_redirect"
-py_modules         = ['create_redirect']
-short_desc         = 'Python script for creating HTML redirects'
-web                = 'https://github.com/domdfcoding/create_redirect'
+__version__ = "0.1.2"
+modname = "create_redirect"
+pypi_name = "create_redirect"
+import_name = "create_redirect"
+__license__ = "GNU General Public License v3 (GPLv3)"
+short_desc = 'Python script for creating HTML redirects'
+__author__ = author = 'Dominic Davis-Foster'
+author_email = 'dominic@davis-foster.co.uk'
+github_username = "domdfcoding"
+web = github_url = "https://github.com/domdfcoding/create_redirect"
+repo_root = pathlib.Path(__file__).parent
+install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").split('\n')
+extras_require = {'all': []}
 
 
-import os.path
-def get_srcdir():
-	filename = os.path.normcase(os.path.dirname(os.path.abspath(__file__)))
-	return os.path.realpath(filename)
 
-srcdir = get_srcdir()
-
-def read(*rnames):
-	return open(os.path.join(srcdir, *rnames)).read()
-
-# Get info from files; set: long_description and VERSION
-long_description   = ( read("README.rst") + '\n' )
-exec(read('version.py'))
+project_urls = {
+		"Documentation": "https://create_redirect.readthedocs.io",
+		"Issue Tracker": f"{github_url}/issues",
+		"Source Code": github_url,
+		}
