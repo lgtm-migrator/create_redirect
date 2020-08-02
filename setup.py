@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-import sys
-
 """Setup script for create_redirect"""
-
 
 from __pkginfo__ import \
     author,           author_email,       install_requires,          \
@@ -10,7 +7,8 @@ from __pkginfo__ import \
     entry_points,     modname,            py_modules,                \
     short_desc,       VERSION,            web
 
-from setuptools import setup, find_packages
+from setuptools import setup
+
 setup(
        author             = author,
        author_email       = author_email,
@@ -21,7 +19,6 @@ setup(
        license            = license,
        long_description   = long_description,
        name               = modname,
-       #packages           = find_packages(),
        py_modules         = py_modules,
        url                = web,
        version            = VERSION)
