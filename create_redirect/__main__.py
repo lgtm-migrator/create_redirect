@@ -3,7 +3,7 @@
 #
 #  __main__.py
 """
-Generate HTML Redirect File
+Generate HTML Redirect File.
 """
 #
 #  Copyright (c) 2015, 2019-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -26,26 +26,33 @@ Generate HTML Redirect File
 
 # stdlib
 import argparse
-import os
+import pathlib
 import sys
 
+__all__ = ["main"]
 
-def main():
-	parser = argparse.ArgumentParser(description='Generate HTML Redirect File.')
-	parser.add_argument('redirect_url', help='The URL to redirect to')
-	parser.add_argument('output', nargs='?', default="redirect.html", help='Path of the file to create')
+# stdlib
+from textwrap import dedent
+
+
+def main() -> int:
+	parser = argparse.ArgumentParser(description="Generate HTML Redirect File.")
+	parser.add_argument("redirect_url", help="The URL to redirect to")
+	parser.add_argument(
+			"output", nargs='?', default="redirect.html", help="Path of the file to create", type=pathlib.Path
+			)
 
 	args = parser.parse_args()
-	if not args.redirect_url.startswith('http'):
+	if not args.redirect_url.startswith("http"):
 		url = f"http://{args.redirect_url}"
 	else:
 		url = args.redirect_url
 
-	output_file = os.path.join(os.getcwd(), args.output)
-
-	with open(output_file, 'w') as f:
-		f.write(
-				"""<!DOCTYPE HTML>
+	output_file: pathlib.Path = args.output
+	output_file.write_text(
+			dedent(
+					"""\
+	<!DOCTYPE HTML>
 	<html lang="en-GB">
 		<head>
 			<meta charset="UTF-8">
@@ -60,9 +67,11 @@ def main():
 			If you are not redirected automatically, follow the <a href='{0}'>link</a>
 		</body>
 	</html>""".format(url)
-				)
+					),
+			encoding="UTF-8",
+			)
 
-	print(f"Successfully written file '{output_file}' with url '{url}'")
+	print(f"Successfully written file '{str(output_file)}' with url '{url}'")
 
 	return 0
 

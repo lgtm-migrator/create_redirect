@@ -114,7 +114,7 @@ Once installed, ``create_redirect`` can be run with the following syntax:
 
 ``redirect_url`` is the URL you want the user to be redirected to.
 
-``output``, an optional argument, is the filename for the output file. By default this is "index.html" in the current directory.
+``output``, an optional argument, is the filename for the output file. By default this is "redirect.html" in the current directory.
 
 
 .. toctree::
