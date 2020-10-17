@@ -28,7 +28,7 @@ create_redirect
 
 .. |docs| image:: https://img.shields.io/readthedocs/create_redirect/latest?logo=read-the-docs
 	:target: https://create_redirect.readthedocs.io/en/latest/?badge=latest
-	:alt: Documentation Status
+	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/domdfcoding/create_redirect/workflows/Docs%20Check/badge.svg
 	:target: https://github.com/domdfcoding/create_redirect/actions?query=workflow%3A%22Docs+Check%22
