@@ -4,7 +4,7 @@ create_redirect
 
 .. start short_desc
 
-**Python script for creating HTML redirects**
+**Python script for creating HTML redirects.**
 
 .. end short_desc
 
@@ -107,8 +107,6 @@ create_redirect
 	:alt: pre-commit.ci status
 
 .. end shields
-
-|
 
 Installation
 --------------

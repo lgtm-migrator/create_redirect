@@ -6,8 +6,8 @@ author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
 version: '0.1.2'
-license: 'GPLv3'
-short_desc: 'Python script for creating HTML redirects'
+license: 'MIT'
+short_desc: 'Python script for creating HTML redirects.'
 
 enable_conda: False
 enable_tests: False
