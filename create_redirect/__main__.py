@@ -27,11 +27,9 @@ Generate HTML Redirect File.
 import argparse
 import pathlib
 import sys
+from textwrap import dedent
 
 __all__ = ["main"]
-
-# stdlib
-from textwrap import dedent
 
 
 def main() -> int:  # noqa: D103
