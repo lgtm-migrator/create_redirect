@@ -68,7 +68,7 @@ def main() -> int:  # noqa: D103
 		</head>
 		<body>
 			<!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-			If you are not redirected automatically, follow the <a href='{0}'>link</a>
+			If you are not redirected automatically, follow <a href='{0}'>this link</a>
 		</body>
 	</html>""".format(url)
 					),
