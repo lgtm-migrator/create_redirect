@@ -32,5 +32,5 @@ from create_redirect.__main__ import main
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2015, 2019-2020 Dominic Davis-Foster"
 __license__: str = "MIT License"
-__version__: str = "0.1.2"
+__version__: str = "0.1.3"
 __email__: str = "dominic@davis-foster.co.uk"
